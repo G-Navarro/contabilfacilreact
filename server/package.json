@@ -4,7 +4,8 @@
     "description": "Backend API for ContabilFacil",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "start": "node server.js",
+        "build": "echo 'No build required'"
     },
     "dependencies": {
         "better-sqlite3": "^9.4.3",
