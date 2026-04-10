@@ -1,0 +1,19 @@
+{
+    "name": "contabilfacil-server",
+    "version": "1.0.0",
+    "description": "Backend API for ContabilFacil",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "better-sqlite3": "^9.4.3",
+        "cors": "^2.8.5",
+        "express": "^4.18.3",
+        "fast-xml-parser": "^5.5.8",
+        "multer": "^2.0.2",
+        "node-fetch": "^3.3.2",
+        "pdf-parse": "^2.4.5",
+        "xlsx": "^0.18.5"
+    }
+}
