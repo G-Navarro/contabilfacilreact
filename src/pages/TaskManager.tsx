@@ -18,14 +18,14 @@ export default function TaskManager() {
     }, []);
 
     const fetchTasks = () => {
-        fetch(`http://localhost:3002/api/portal/${user.office_id}/tasks`)
+        fetch(`https://contabilfacil-api.onrender.com/api/portal/${user.office_id}/tasks`)
             .then(res => res.json())
             .then(data => setTasks(data))
             .catch(err => console.error(err));
     };
 
     const fetchClients = () => {
-        fetch(`http://localhost:3002/api/portal/${user.office_id}/clients`)
+        fetch(`https://contabilfacil-api.onrender.com/api/portal/${user.office_id}/clients`)
             .then(res => res.json())
             .then(data => setClients(data))
             .catch(err => console.error(err));
@@ -34,7 +34,7 @@ export default function TaskManager() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3002/api/tasks', {
+            const response = await fetch('https://contabilfacil-api.onrender.com/api/tasks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...formData, officeId: user.office_id })

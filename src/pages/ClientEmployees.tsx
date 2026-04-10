@@ -15,7 +15,7 @@ export default function ClientEmployees() {
 
     const fetchEmployees = async () => {
         try {
-            const response = await fetch(`http://localhost:3002/api/clients/${clientId}/employees`);
+            const response = await fetch(`https://contabilfacil-api.onrender.com/api/clients/${clientId}/employees`);
             if (!response.ok) {
                 if (response.status === 404) {
                     alert("Erro 404: Endpoint não encontrado. Reinicie o servidor.");
@@ -33,7 +33,7 @@ export default function ClientEmployees() {
     const handleDeleteEmployee = async (id: number) => {
         if (!confirm('Tem certeza que deseja excluir este funcionário?')) return;
         try {
-            const response = await fetch(`http://localhost:3002/api/employees/${id}`, { method: 'DELETE' });
+            const response = await fetch(`https://contabilfacil-api.onrender.com/api/employees/${id}`, { method: 'DELETE' });
             if (response.ok) {
                 fetchEmployees();
             } else {
@@ -50,7 +50,7 @@ export default function ClientEmployees() {
         formData.append('file', file);
         setImporting(true);
 
-        const endpoint = `http://localhost:3002/api/clients/${clientId}/upload-employees`;
+        const endpoint = `https://contabilfacil-api.onrender.com/api/clients/${clientId}/upload-employees`;
 
         try {
             const response = await fetch(endpoint, {

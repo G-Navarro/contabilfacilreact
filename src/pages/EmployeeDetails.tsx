@@ -17,7 +17,7 @@ export default function EmployeeDetails() {
     const fetchEmployee = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:3002/api/employees/${employeeId}`);
+            const response = await fetch(`https://contabilfacil-api.onrender.com/api/employees/${employeeId}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     alert("Funcionário não encontrado.");

@@ -22,7 +22,7 @@ export default function RegisterOffice() {
         setLoading(true);
         try {
             // Use local proxy to avoid CORS and mixed content issues
-            const response = await fetch(`http://localhost:3002/api/cnpj/${cleaned}`);
+            const response = await fetch(`https://contabilfacil-api.onrender.com/api/cnpj/${cleaned}`);
             const data = await response.json();
 
             if (response.ok) {
@@ -57,7 +57,7 @@ export default function RegisterOffice() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3002/api/offices', {
+            const response = await fetch('https://contabilfacil-api.onrender.com/api/offices', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

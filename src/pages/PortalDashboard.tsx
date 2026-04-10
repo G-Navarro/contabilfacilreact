@@ -23,9 +23,9 @@ export default function PortalDashboard() {
         if (userData.office_id) {
             // Fetch Stats
             Promise.all([
-                fetch(`http://localhost:3002/api/portal/${userData.office_id}/clients`).then(r => r.json()),
-                fetch(`http://localhost:3002/api/portal/${userData.office_id}/tasks`).then(r => r.json()),
-                fetch(`http://localhost:3002/api/portal/${userData.office_id}/billings`).then(r => r.json())
+                fetch(`https://contabilfacil-api.onrender.com/api/portal/${userData.office_id}/clients`).then(r => r.json()),
+                fetch(`https://contabilfacil-api.onrender.com/api/portal/${userData.office_id}/tasks`).then(r => r.json()),
+                fetch(`https://contabilfacil-api.onrender.com/api/portal/${userData.office_id}/billings`).then(r => r.json())
             ]).then(([clients, tasks, billings]) => {
                 setStats({
                     clients: Array.isArray(clients) ? clients.length : 0,

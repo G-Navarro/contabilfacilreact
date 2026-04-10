@@ -16,7 +16,7 @@ export default function ClientManager() {
     }, []);
 
     const fetchClients = () => {
-        fetch(`http://localhost:3002/api/portal/${user.office_id}/clients`)
+        fetch(`https://contabilfacil-api.onrender.com/api/portal/${user.office_id}/clients`)
             .then(res => res.json())
             .then(data => setClients(data))
             .catch(err => console.error(err));
@@ -28,7 +28,7 @@ export default function ClientManager() {
 
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:3002/api/cnpj/${cleaned}`);
+            const response = await fetch(`https://contabilfacil-api.onrender.com/api/cnpj/${cleaned}`);
             const data = await response.json();
 
             if (response.ok) {
@@ -49,7 +49,7 @@ export default function ClientManager() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3002/api/clients', {
+            const response = await fetch('https://contabilfacil-api.onrender.com/api/clients', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...formData, officeId: user.office_id })

@@ -15,7 +15,7 @@ export default function OfficeList() {
     }, []);
 
     const fetchOffices = () => {
-        fetch('http://localhost:3002/api/offices')
+        fetch('https://contabilfacil-api.onrender.com/api/offices')
             .then(res => res.json())
             .then(data => setOffices(data))
             .catch(err => console.error('Error fetching offices:', err));
@@ -24,7 +24,7 @@ export default function OfficeList() {
     const toggleStatus = async (id: number, currentStatus: string) => {
         const newStatus = currentStatus === 'active' ? 'inactive' : 'active';
         try {
-            await fetch(`http://localhost:3002/api/offices/${id}/status`, {
+            await fetch(`https://contabilfacil-api.onrender.com/api/offices/${id}/status`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: newStatus })
@@ -43,7 +43,7 @@ export default function OfficeList() {
 
     const loadUsers = async (officeId: number) => {
         try {
-            const res = await fetch(`http://localhost:3002/api/offices/${officeId}/users`);
+            const res = await fetch(`https://contabilfacil-api.onrender.com/api/offices/${officeId}/users`);
             const data = await res.json();
             setOfficeUsers(data);
         } catch (error) {
@@ -56,7 +56,7 @@ export default function OfficeList() {
         if (!selectedOffice) return;
 
         try {
-            const response = await fetch('http://localhost:3002/api/users', {
+            const response = await fetch('https://contabilfacil-api.onrender.com/api/users', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...userData, officeId: selectedOffice.id })

@@ -5,7 +5,7 @@ export default function Dashboard() {
     const [stats, setStats] = useState({ count: 0 });
 
     useEffect(() => {
-        fetch('http://localhost:3002/api/stats')
+        fetch('https://contabilfacil-api.onrender.com/api/stats')
             .then(res => res.json())
             .then(data => setStats(data))
             .catch(err => console.error('Failed to load stats:', err));

@@ -26,14 +26,14 @@ export default function ClientSettings() {
     }, [clientId]);
 
     const fetchRoles = () => {
-        fetch(`http://localhost:3002/api/clients/${clientId}/roles`)
+        fetch(`https://contabilfacil-api.onrender.com/api/clients/${clientId}/roles`)
             .then(res => res.json())
             .then(setRoles)
             .catch(console.error);
     };
 
     const fetchSchedules = () => {
-        fetch(`http://localhost:3002/api/clients/${clientId}/schedules`)
+        fetch(`https://contabilfacil-api.onrender.com/api/clients/${clientId}/schedules`)
             .then(res => res.json())
             .then(setSchedules)
             .catch(console.error);
@@ -42,7 +42,7 @@ export default function ClientSettings() {
     const handleRoleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await fetch(`http://localhost:3002/api/clients/${clientId}/roles`, {
+            await fetch(`https://contabilfacil-api.onrender.com/api/clients/${clientId}/roles`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newRole)
@@ -58,7 +58,7 @@ export default function ClientSettings() {
     const handleScheduleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await fetch(`http://localhost:3002/api/clients/${clientId}/schedules`, {
+            await fetch(`https://contabilfacil-api.onrender.com/api/clients/${clientId}/schedules`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: newScheduleName, schedule: newScheduleDays })

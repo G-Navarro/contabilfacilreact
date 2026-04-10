@@ -24,7 +24,7 @@ export default function ClientInvoices() {
   const fetchInvoices = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:3002/api/clients/${clientId}/invoices`);
+      const res = await fetch(`https://contabilfacil-api.onrender.com/api/clients/${clientId}/invoices`);
       if (res.ok) {
         const data = await res.json();
         setInvoices(data);
@@ -52,7 +52,7 @@ export default function ClientInvoices() {
     setMessage('');
 
     try {
-      const res = await fetch(`http://localhost:3002/api/clients/${clientId}/invoices/upload`, {
+      const res = await fetch(`https://contabilfacil-api.onrender.com/api/clients/${clientId}/invoices/upload`, {
         method: 'POST',
         body: formData,
       });

@@ -13,7 +13,7 @@ export default function ClientDashboard() {
     useEffect(() => {
         // Fetch client details to show header
         if (clientId && user.office_id) {
-            fetch(`http://localhost:3002/api/portal/${user.office_id}/clients`)
+            fetch(`https://contabilfacil-api.onrender.com/api/portal/${user.office_id}/clients`)
                 .then(res => res.json())
                 .then(data => {
                     const found = data.find((c: any) => c.id === parseInt(clientId));
