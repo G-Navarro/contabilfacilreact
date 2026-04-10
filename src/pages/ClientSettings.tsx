@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default function ClientSettings() {
     const { clientId } = useParams();
-    // Vercel deployment block: removing unused variables
-    const outletContext = useOutletContext<any>(); 
-    // State
+
     const [roles, setRoles] = useState<any[]>([]);
     const [schedules, setSchedules] = useState<any[]>([]);
     const [activeTab, setActiveTab] = useState<'roles' | 'schedules'>('roles');
